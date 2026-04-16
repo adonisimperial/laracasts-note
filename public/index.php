@@ -12,10 +12,12 @@ session_start();
 require BASE_PATH . "Core/functions.php";
 
 /* Composer Autoload will be used as stated in the above line requiring vendor autoload
+// To update/generate autoload, run: composer install which will includes autoload files
+// if autoload files was not added during composer install, run: composer dump-autoload
 spl_autoload_register(function($class) {
     // Translate Core\Database (the "\" is caused by the namespace) to Core/Database
     //require base_path("Core/{$class}.php");
-    $class = str_replace("\\", "/", $class);
+    $class = str_replace("\\", "/", $class);    // str_replace("\\", DIRECTORY_SEPARATOR, $class);
     require base_path("{$class}.php");
 });
 */
